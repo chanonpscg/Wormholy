@@ -11,3 +11,4 @@ import Foundation
 //Notifications
 let fireWormholy = NSNotification.Name(rawValue: "wormholy_fire")
 let newRequestNotification = NSNotification.Name(rawValue: "wormholy_new_request")
+let copyRequestToClipBoard = NSNotification.Name(rawValue: "wormholy_copy_request_to_clipboard")
