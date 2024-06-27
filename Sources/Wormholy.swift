@@ -50,6 +50,15 @@ public class Wormholy: NSObject
             }
             UIPasteboard.general.string = text
         }
+        NotificationCenter.default.addObserver(forName: saveRequestsToUserDefault, object: nil, queue: nil) { (notification) in
+            let requests = Storage.shared.requests
+            var logs: [String] = []
+            for request in requests {
+                logs.append(RequestModelBeautifier.txtExport(request: request))
+            }
+            UserDefaults.standard.set(logs, forKey: "saveRequestsTextAsArray")
+            NotificationCenter.default.post(name: prepareTxtFile, object: nil)
+        }
     }
     
     @objc public static func swiftyInitialize() {
